@@ -370,7 +370,7 @@ body.dragging, body.dragging * { cursor: grabbing !important; user-select: none 
 .foot-links { display: flex; gap: 1.1rem; margin-top: .65rem; font-size: .74rem; }
 
 /* live room */
-.live-row { display: flex; align-items: center; justify-content: space-between; gap: .8rem; margin-bottom: .6rem; font-size: .74rem; color: var(--text-3); }
+.live-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem .8rem; margin-bottom: .6rem; font-size: .74rem; color: var(--text-3); }
 .live { display: inline-flex; align-items: center; gap: .45rem; white-space: nowrap; }
 .live i { width: .5rem; height: .5rem; border-radius: 50%; background: var(--text-3); flex: none; }
 .live.is-live i { background: #5fd08a; box-shadow: 0 0 0 3px rgba(95, 208, 138, .16); }
@@ -1771,7 +1771,7 @@ tr.top .meter i { background: var(--t-S); }
     const before = cardRects();
     state.players[i] = sanitizePlayer(rec, i);
     save();
-    if (i === state.active && !drag) { renderBoard(); playFlip(before); }
+    if (i === state.active && !drag) { renderBoard(); playFlip(before); } else renderDone();
     renderIndex();
     renderRate();
     renderPlayers();
